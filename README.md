@@ -15,11 +15,11 @@
 ```
 2.直接调用WGSocketManager单例对象的连接方法即可与服务器实现长连接
 ```objc
-    NSString *host = @"192.168.2.161";
-    NSInteger port = 6666;
+NSString *host = @"192.168.2.161";
+NSInteger port = 6666;
     
-    // 连接服务器
-    [[WGSocketManager manager] connectToServerWithIP:host andPort:port];
+// 连接服务器
+[[WGSocketManager manager] connectToServerWithIP:host andPort:port];
 ```
 3.实现WGSocketManager的代理方法1. 与服务器连接成功时会调用
 ```objc
@@ -34,10 +34,10 @@
 ```
 4.此时可以调用WGSocketManager单例对象的发送方法向服务器发送数据(数据类型只能是`NSArray`或`NSDictionary`)
 ```objc
-    NSDictionary *dic = @{@"name":@"Veeco"};
+NSDictionary *dic = @{@"name":@"Veeco"};
     
-    // 发送数据
-    [[WGSocketManager manager] sendToServerWithData:dic];
+// 发送数据
+[[WGSocketManager manager] sendToServerWithData:dic];
 ```
 5.实现WGSocketManager的代理方法2. 收到服务器发出的数据时会调用
 ```objc
@@ -65,8 +65,8 @@
 ```
 7.调用WGSocketManager单例对象的中断方法即可与服务器断开长连接
 ```objc
-    // 断开连接
-    [[WGSocketManager manager] disconnectToServer];
+// 断开连接
+[[WGSocketManager manager] disconnectToServer];
 ```
 8.调用WGSocketManager单例对象的以下属性可以获取所消耗流量信息
 ```objc
