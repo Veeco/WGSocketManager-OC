@@ -69,7 +69,7 @@
 
 /**
  * 代理方法1. 与服务器连接成功时会调用
- * 参数 SocketManager 本管理者
+ * 参数 socketManager 本管理者
  */
 - (void)connectSucceededToServerWithSocketManager:(nonnull WGSocketManager *)socketManager {
 
