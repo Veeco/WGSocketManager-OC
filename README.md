@@ -1,5 +1,5 @@
 #WGSocketManager-OC
-iOS基于NSStream实现的Socket长连接小封装
+iOS实现Socket长连接
 
 #搭建环境
 1. 将下载后的WGSocketManager文件夹拖进工程中
