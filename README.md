@@ -1,12 +1,12 @@
-#WGSocketManager-OC
+# WGSocketManager-OC
 iOS实现Socket长连接
 
-#搭建环境
+## 搭建环境
 1. 将下载后的WGSocketManager文件夹拖进工程中
 2. 导入libz库(用于压缩处理)
 3. 导入头文件WGSocketManager.h即可
 
-#基本使用
+## 基本使用
 1.设置WGSocketManager单例对象的代理并遵守WGSocketManagerProtocol协议
 ```objc
 [WGSocketManager manager].delegate = self;
@@ -75,7 +75,7 @@ NSDictionary *dic = @{@"name":@"Veeco"};
 /** 总共接收数据量(单位:M) */
 @property (nonatomic, assign, readonly) double gotTotalData;
 ```
-#注意点
+## 注意点
 由于流的特性, 我们很难准确无误地获取服务器返回的数据(反之亦然), 特别是数据连发或网络不好的时候, 会出现多条数据连着一起收到的情况(当然也会有1条数据分成多段收到的情况), 所以我们必须在每一条数据前加上数据长度的信息, 这样接收方在接收到数据后就可以准确无误地截取并且解析了. 这里我是把每条数据的前7个字节用来放辅助信息的, 下面会作详细说明:
 * 前4个字节合起来(即32位下的int)表示每条数据的字节长度 `注意这里的长度是把前7个字节也一并算上的`
 * 第5个字节表示数据类型, 暂时只支持一种类型 `1 -> JSON`
@@ -96,4 +96,4 @@ NSDictionary *dic = @{@"name":@"Veeco"};
 
 * 这里需要强调的是, 服务器也必须遵循这个`7个字节`原则才能进行正常交流(当时同事使用Java写的服务器, 用AIO)
 
-##第一次做关于Socket的项目, 难免有幼嫩的地方, 请大家多多指点, 谢谢!
+### 第一次做关于Socket的项目, 难免有幼嫩的地方, 请大家多多指点, 谢谢!
