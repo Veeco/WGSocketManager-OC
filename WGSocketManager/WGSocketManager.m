@@ -199,12 +199,12 @@
  * 参数 intValue int类型
  * 参数 ByteArr 转换后的Byte类型数组容器
  */
-- (void)convertToByteFromIntValue:(NSInteger)intValue andByteArr:(nonnull Byte *)ByteArr {
+- (void)convertToByteFromIntValue:(NSInteger)intValue andByteArr:(nonnull Byte *)byteArr {
     
-    ByteArr[0] = (intValue >> 24) & 255;
-    ByteArr[1] = (intValue >> 16) & 255;
-    ByteArr[2] = (intValue >> 8) & 255;
-    ByteArr[3] = intValue & 255;
+    byteArr[0] = (intValue >> 24) & 255;
+    byteArr[1] = (intValue >> 16) & 255;
+    byteArr[2] = (intValue >> 8) & 255;
+    byteArr[3] = intValue & 255;
 }
 
 /**
@@ -235,11 +235,11 @@
     NSData *bodyData = [self getDataWithDataType:kDataType encodeType:kEncodeType compressType:kCompressType data:originData];
     
     // 把要发送的主体二进制数据长度转成字节数组
-    Byte ByteArr[4];
-    [self convertToByteFromIntValue:bodyData.length + 7 andByteArr:ByteArr];
+    Byte byteArr[4];
+    [self convertToByteFromIntValue:bodyData.length + 7 andByteArr:byteArr];
     
     // 以字节数组形式设置头部数据
-    Byte headArr[] = {ByteArr[0], ByteArr[1], ByteArr[2], ByteArr[3], kDataType, kEncodeType, kCompressType};
+    Byte headArr[] = {byteArr[0], byteArr[1], byteArr[2], byteArr[3], kDataType, kEncodeType, kCompressType};
     
     // 转换成头部数据
     NSMutableData *headDataM = [NSMutableData dataWithBytes:headArr length:sizeof(headArr)];
